@@ -1,0 +1,21 @@
+<%= form_tag flights_path, method: 'get' do %>
+   <div class="row">
+      <div class="col-md-3">
+         <%= select_tag :from, options_for_select(@airports), prompt: "Departure" %>
+      </div>
+      <div class="col-md-3">
+         <%= select_tag :to, options_for_select(@airports), prompt: "Destination" %>
+      </div>
+      <div class="col-md-3">
+         <%= select_tag :date, options_for_select(@departure_dates), prompt: "Date" %>
+      </div>
+      <div class="col-md-3">
+         <%= select_tag :passengers, options_for_select(@passengers), prompt: "Passengers" %>
+      </div>
+   </div>
+   <div class="row">
+      <div class="col-md-12">
+         <%= submit_tag "Search Flights", class: "btn btn-lg btn-primary" %>
+      </div>
+   </div>
+<% end %>

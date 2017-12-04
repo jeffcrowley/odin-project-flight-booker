@@ -1,0 +1,30 @@
+<table class="table table-striped">
+   <thead>
+      <tr>
+         <th>From</th>
+         <th>To</th>
+         <th>Flight #</th>
+         <th>Departure Date</th>
+         <th>Departure Time</th>
+         <th>Arrival Date</th>
+         <th>Arrival Time</th>
+         <th>Duration</th>
+         <th>Price</th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @flights.each do |flight| %>
+         <tr>
+            <td><%= flight.departure_airport.name %></td>
+            <td><%= flight.arrival_airport.name %></td>
+            <td><%= flight.flight_num %></td>
+            <td><%= flight.departure_date.strftime('%D') %></td>
+            <td><%= flight.departure_date.strftime("%l:%M %p") %></td>
+            <td><%= flight.arrival_date.strftime('%D') %></td>
+            <td><%= flight.arrival_date.strftime("%l:%M %p") %></td>
+            <td><%= flight.duration %></td>
+            <td><%= "$#{flight.price}" %></td>
+         </tr>
+      <% end %>
+   </tbody>
+</table>

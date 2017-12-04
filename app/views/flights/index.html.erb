@@ -1,0 +1,9 @@
+<h1>Select Your Flight</h1>
+
+<%= render 'search' %>
+
+<% if !@flights.none? %>
+<%= render 'search_results' %>
+<% end %>
+
+
