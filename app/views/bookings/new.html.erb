@@ -1,0 +1,33 @@
+<h1>Your Flight Info</h1>
+
+<h3>Flight #: <%= @flight.flight_num %></h3>
+<h3><%= @flight.departure_airport.name %> (<%= @flight.departure_airport.abbreviation %>) --> <%= @flight.arrival_airport.name %> (<%= @flight.arrival_airport.abbreviation %>)</h3>
+<h3>Departure Date: <%= @flight.departure_date.strftime('%D') %></h3>
+<h3>Departure Time: <%= @flight.departure_date.strftime("%l:%M %p") %></h3>
+<h3>Flight Duration: <%= @flight.duration %></h3>
+<h3>Price: <%= "$#{@flight.price}" %></h3>
+<h3>Number of Passengers: <%= @passenger_count %></h3>
+<h3>Total Price: <%= "$#{@flight.price * @passenger_count}" %></h3>
+
+<h1>Enter Passenger Info</h1>
+
+<%= form_for(@booking) do |f| %>
+      <%= f.hidden_field :flight_id %>
+      <%= f.fields_for :passengers do |p| %>
+         <div class="row">
+            <div class="col-md-4">
+               <%= p.label :name %>
+               <%= p.text_field :name %>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-4">
+               <%= p.label :email %>
+               <%= p.text_field :email %>
+            </div>
+         </div>
+      <% end %>
+      <%= f.submit "Book Flight", class: "btn btn-lg btn-primary" %>
+<% end %>
+
+
