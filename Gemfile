@@ -25,6 +25,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'simple_form'
 gem 'faker'
 gem 'pry-rails'
+gem 'letter_opener', group: :development
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
