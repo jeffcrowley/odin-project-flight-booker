@@ -1,1 +1,17 @@
-<%= @booking %>
+<h1>Congratulations! Your flight has been booked.</h1>
+
+<h3>Your Flight's Info</h3>
+<p>Flight #: <%= @flight.flight_num %></p>
+<p><%= @flight.departure_airport.name %> (<%= @flight.departure_airport.abbreviation %>) --> <%= @flight.arrival_airport.name %> (<%= @flight.arrival_airport.abbreviation %>)</p>
+<p>Departure Date: <%= @flight.departure_date.strftime('%D') %></p>
+<p>Departure Time: <%= @flight.departure_date.strftime("%l:%M %p") %></p>
+<p>Flight Duration: <%= @flight.duration %></p>
+<p>Price: <%= "$#{@flight.price}" %></p>
+<p>Number of Passengers: <%= @passengers.count %></p>
+<p>Total Price: <%= "$#{@flight.price * @passengers.count}" %></p>
+
+<h3>Passenger Info</h3>
+<% @passengers.each do |passenger| %>
+   <p>Name: <%= passenger.name %></p>
+   <p>Email: <%= passenger.email %></p>
+<% end %>

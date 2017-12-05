@@ -13,7 +13,7 @@
 
 <%= form_for(@booking) do |f| %>
       <%= f.hidden_field :flight_id %>
-      <%= f.fields_for :passengers do |p| %>
+      <%= f.fields_for :passengers do |p| %> <%# auto-populates with the number of new passengers built. See BookingsController %>
          <div class="row">
             <div class="col-md-4">
                <%= p.label :name %>
